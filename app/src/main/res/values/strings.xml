@@ -4,6 +4,7 @@
 
     <string name="header_scrolling_behavior">com.example.cyandev.androidplayground.widget.HeaderScrollingBehavior</string>
     <string name="header_float_behavior">com.example.cyandev.androidplayground.widget.HeaderFloatBehavior</string>
+    <string name="header_scroller">com.example.cyandev.androidplayground.test.behaviors.ScrollBehavior</string>
 
     <string name="action_settings">Settings</string>
 </resources>
