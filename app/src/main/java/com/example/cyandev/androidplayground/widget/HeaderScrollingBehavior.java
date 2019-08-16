@@ -7,6 +7,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.Scroller;
 
@@ -87,10 +88,10 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<Recycler
 
     @Override
     public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, RecyclerView child, View target, int dx, int dy, int[] consumed) {
+        Log.d("onNestedPreScroll","dy: "+dy+"");   //向上滑动 dy>0   向下滑动dy<0
         if (dy < 0) {
             return;
         }
-
         View dependentView = getDependentView();
         float newTranslateY = dependentView.getTranslationY() - dy;
         float minHeaderTranslate = -(dependentView.getHeight() - getDependentViewCollapsedHeight());
@@ -99,11 +100,12 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<Recycler
             dependentView.setTranslationY(newTranslateY);
             consumed[1] = dy;
         }
+
     }
 
     @Override
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, RecyclerView child, View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
-        if (dyUnconsumed > 0) {
+        if (dyUnconsumed > 0) {  //向上滑动 dy>0   向下滑动dy<0
             return;
         }
 
@@ -111,9 +113,9 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<Recycler
         float newTranslateY = dependentView.getTranslationY() - dyUnconsumed;
         final float maxHeaderTranslate = 0;
 
-        if (newTranslateY < maxHeaderTranslate) {
+        //if (newTranslateY < maxHeaderTranslate) {
             dependentView.setTranslationY(newTranslateY);
-        }
+        //}
     }
 
     @Override
