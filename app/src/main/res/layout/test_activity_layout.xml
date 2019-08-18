@@ -2,16 +2,24 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    >
 
-
-
+    <LinearLayout
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_header"
+        android:orientation="vertical"></LinearLayout>
     <FrameLayout
         android:id="@+id/center_content"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="100dp"
-        android:background="@color/colorPrimaryDark">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="@mipmap/content"
+        android:clipChildren="false"
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -20,15 +28,15 @@
             android:layout_gravity="center"
             android:id="@+id/tvContentTitle"
             />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/avatar"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="-30dp"
+            android:id="@+id/iv_avatar"
+            />
     </FrameLayout>
-
-    <LinearLayout
-        android:id="@+id/title_view"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/bg_header"
-        android:orientation="vertical"></LinearLayout>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
@@ -37,6 +45,22 @@
         app:layout_behavior="@string/header_scroller"
         app:layoutManager="LinearLayoutManager"
          />
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:id="@+id/lin_searchbar"
+        android:background="@mipmap/search_bar"
+        android:fitsSystemWindows="false"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textSize="22dp"
+            />
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

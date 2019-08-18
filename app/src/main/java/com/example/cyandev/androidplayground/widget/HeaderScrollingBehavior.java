@@ -113,9 +113,9 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<Recycler
         float newTranslateY = dependentView.getTranslationY() - dyUnconsumed;
         final float maxHeaderTranslate = 0;
 
-        //if (newTranslateY < maxHeaderTranslate) {
+        if (newTranslateY < maxHeaderTranslate) {
             dependentView.setTranslationY(newTranslateY);
-        //}
+        }
     }
 
     @Override
@@ -126,7 +126,7 @@ public class HeaderScrollingBehavior extends CoordinatorLayout.Behavior<Recycler
     @Override
     public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, RecyclerView child, View target) {
         if (!isScrolling) {
-            onUserStopDragging(800);
+//            onUserStopDragging(800);
         }
     }
 
